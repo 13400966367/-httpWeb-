@@ -1,0 +1,48 @@
+文件结构：
+.
+├── BasicWebServer.class
+├── BasicWebServer.java
+├── ClientThread.class
+├── ClientThread.java
+├── README
+├── TCPClient.class
+├── TCPClient.java
+├── WebRequestHandler.class
+├── WebRequestHandler.java
+├── conf
+│   ├── httpd.conf
+│   └── last_modified
+├── file.txt
+├── file1
+│   ├── 1.txt
+│   ├── 2.txt
+│   ├── QQ.jpg
+│   ├── file1.html
+│   ├── file2.html
+│   ├── file3.html
+│   ├── file4.html
+│   ├── index.html
+│   └── index_m.html
+└── file2
+    ├── file1.html
+    ├── file2.html
+    ├── file3.html
+    ├── file4.html
+    ├── index.html
+    └── index_m.html
+
+完成情况：
+HTTP Methods: Your server must support HTTP 1.0 (http://www.w3.org/Protocols/HTTP/1.0/spec.html) GET method.
+
+Headers: Your server must send the Last-Modified header and understand the If-Modified-Since header from client. This means that you will need to parse date format. For this assignment, we use the rfc1123-date format. Your server also needs to understand the User-Agent header. For other headers, your server can skip.
+
+URL Mapping: If the URL ends with / without specifying a file name, your server should return index.html if it exists; otherwise it will return Not Found. If the request is for DocumentRoot without specifying a file name and the User-Agent header indicates that the request is from a mobile handset (e.g., it should at least detect iphone by detecting iPhone in the User-Agent string),  it should return index_m.html, if it exists; index.html next, and then Not Found.
+
+Caching: Your server needs to include a basic caching mechanism to speedup handling of requests for static files. The cache is a simple Java Map, with key being the file and content the whole file in an array. Before reading a file from disk, the server checks whether it is already cached. Think: how to handle multiple threads reading and adding to the Map.
+The cache size can be specified in the configuration file:
+
+CacheSize <cache size in KBytes>
+
+		其中Header能够识别到User-Agent和If-Modified-Since,但是If-Modified-Since服务器不会做出解析时间的行为，只会输出在header里面
+		
+
