@@ -44,5 +44,3 @@ The cache size can be specified in the configuration file:
 CacheSize <cache size in KBytes>
 
 		其中Header能够识别到User-Agent和If-Modified-Since,但是If-Modified-Since服务器不会做出解析时间的行为，只会输出在header里面
-		
-
